@@ -14,9 +14,10 @@ import com.dianping.cat.abtest.sample.SampleTest.MyABTestId;
 public class SimpleRoundRobinServlet extends HttpServlet {
 	private static final long serialVersionUID = -6472784609174835547L;
 
+	private ABTest m_abtest = ABTestManager.getTest(MyABTestId.CASE1);
+
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ABTest m_abtest = ABTestManager.getTest(MyABTestId.CASE1);
 		if (m_abtest.isGroupA()) {
 			String a = "This is group A";
 			byte[] aByte = a.getBytes();
@@ -28,7 +29,7 @@ public class SimpleRoundRobinServlet extends HttpServlet {
 			response.getOutputStream().write(bByte);
 			// Cat.logMetric(...);
 		} else {
-			String b = "This is group default";
+			String b = "This is group dfault";
 			byte[] bByte = b.getBytes();
 			response.getOutputStream().write(bByte);
 			// Cat.logMetric(...);

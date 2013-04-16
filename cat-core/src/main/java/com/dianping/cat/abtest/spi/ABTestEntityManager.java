@@ -1,7 +1,7 @@
 package com.dianping.cat.abtest.spi;
 
-import java.util.Map;
+import com.dianping.cat.abtest.ABTestId;
 
 public interface ABTestEntityManager {
-	public Map<Integer, ABTestEntity> getEntities();
+	public ABTestEntity getEntity(ABTestId id);
 }
